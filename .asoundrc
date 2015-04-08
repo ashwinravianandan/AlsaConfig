@@ -1,0 +1,58 @@
+pcm.HDMI {
+   type hw
+   card 0
+   device 3
+}
+
+pcm.HDMIComplete{
+   type softvol
+   slave.pcm "softwareMixing"
+   control.name "HDMIMaster"
+   control.card 0
+}
+
+
+pcm.BuildIn {
+   type hw
+   card 0
+   device 0
+}
+
+ctl.BuildIn{
+   type hw
+   card 0
+   device 0
+}
+ctl.HMDI{
+   type hw
+   card 0
+   device 3
+}
+#pcm.!default{
+#   pcm HDMI
+#}
+#
+#ctl.!default{
+#   ctl HDMI
+#}
+
+pcm.softwareMixing {
+   type dmix
+   ipc_key 2014
+   slave.pcm "HDMI"
+   #slave.pcm "BuiltIn"
+   bindings {
+      0 0
+      1 1
+   }
+}
+
+#defaults.pcm.card 0
+#defaults.ctl.card 0
+#defaults.pcm.device 3
+
+pcm.!default {
+   type plug
+   slave.pcm "HDMIComplete"
+   #slave.pcm "softwareMixing"
+}
