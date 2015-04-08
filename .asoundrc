@@ -39,8 +39,8 @@ ctl.HMDI{
 pcm.softwareMixing {
    type dmix
    ipc_key 2014
-   slave.pcm "HDMI"
-   #slave.pcm "BuiltIn"
+   #slave.pcm "HDMI"
+   slave.pcm "BuiltIn"
    bindings {
       0 0
       1 1
@@ -53,6 +53,6 @@ pcm.softwareMixing {
 
 pcm.!default {
    type plug
-   slave.pcm "HDMIComplete"
-   #slave.pcm "softwareMixing"
+   #slave.pcm "HDMIComplete"
+   slave.pcm "softwareMixing"
 }
