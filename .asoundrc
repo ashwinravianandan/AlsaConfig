@@ -43,7 +43,7 @@ pcm.softwareMixing {
       pcm "BuiltIn"
       #slave.pcm "HDMI"
       buffer_size 4096
-      period_size 512
+      period_size 512 # modify this to fix stuttering issues
    }
 
    bindings {
