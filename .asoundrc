@@ -12,13 +12,13 @@ pcm.HDMIComplete{
 }
 
 
-pcm.BuildIn {
+pcm.BuiltIn {
    type hw
    card 0
    device 0
 }
 
-ctl.BuildIn{
+ctl.BuiltIn{
    type hw
    card 0
    device 0
@@ -39,8 +39,13 @@ ctl.HMDI{
 pcm.softwareMixing {
    type dmix
    ipc_key 2014
-   #slave.pcm "HDMI"
-   slave.pcm "BuiltIn"
+   slave {
+      pcm "BuiltIn"
+      #slave.pcm "HDMI"
+      buffer_size 4096
+      period_size 512
+   }
+
    bindings {
       0 0
       1 1
